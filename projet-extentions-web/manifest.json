@@ -1,0 +1,34 @@
+{
+
+    "manifest_version": 2,
+    "name": "Borderify",
+    "version": "1.0",
+  
+    "description": "Ajoute une bordure rouge pleine sur l'ensemble des pages web mozilla.org.",
+  
+    "icons": {
+      "48": "Nature/extention.jpg"
+    },
+  
+    "content_scripts": [
+      {
+        "matches": ["<all_urls>"],
+        "js": ["borderify.js"]
+      }
+    ],
+
+    "browser_action":{
+        "default_icon" : "Nature/extention.jpg",
+        "default_title": "borderify",
+        "default_popup": "borderify.html"
+    },
+    
+    "web_accessible_resources":[
+        "Nature/Photo-Plage-1.jpg",
+        "Nature/Photo-Plage-2.jpg",
+        "Nature/92.jpg'",
+        "Nature/Photo-foret-1.jpg",
+        "Nature/Photo-Montagne-1.png"
+    ]
+    
+  }
