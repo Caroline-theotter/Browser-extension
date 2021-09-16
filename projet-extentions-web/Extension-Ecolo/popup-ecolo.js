@@ -4,11 +4,14 @@ checkbox.addEventListener('change', notifyBackgroundPage);
      function checkingSwitchButton () {
 
       if (checkbox.checked) {
-        checkbox.checked = false;
-      }else{
-        checkbox.checked = true;
+       // checkbox.checked = true;
+        browser.storage.local.set({checked : checkbox.checked});
+      }else {
+       // checkbox.checked = false;
+        browser.storage.local.set({checked : checkbox.checked});
       }
    }
+
 //------------
 console.log("hello 1")
   function handleError(error) {
@@ -18,11 +21,18 @@ console.log("hello 1")
   function notifyBackgroundPage() {
     console.log("hello 3")
     var sending = browser.runtime.sendMessage({
-      greeting: "Greeting from the content script"
+      
     });
     console.log("hello 4")
     sending.then(checkingSwitchButton, handleError);
   }
+
+  function onGet(state){
+    console.log(state.checked)
+    checkbox.checked = state.checked;
+  }
+  var storageGeting = browser.storage.local.get(["checked"])
+  storageGeting.then(onGet)
 
    //popup envoie un message au background 
    //background recois le message 
