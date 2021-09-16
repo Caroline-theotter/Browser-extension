@@ -8,7 +8,14 @@
     "icons": {
       "96": "icons/icon-extension-ecolo.png"
     },
-  
+    
+    "content_scripts": [
+      {
+        "matches": ["<all_urls>"],
+        "js": ["content-script-ecolo.js"]
+      }
+    ],
+
     "background": 
       {
         "scripts": ["background.js"]

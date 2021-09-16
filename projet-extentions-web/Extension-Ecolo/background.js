@@ -18,6 +18,7 @@ const stoppingExtension = (message) => {
   refresh = "document.location.reload()"
   browser.webRequest.onBeforeRequest.addListener(cancel,{urls: ["<all_urls>"], types: ["image"]},["blocking"]);
   browser.tabs.executeScript({code : refresh})
+  
   }
 }
 
