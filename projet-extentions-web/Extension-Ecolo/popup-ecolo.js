@@ -1,13 +1,12 @@
 var checkbox = document.querySelector('input[type="checkbox"]');
 checkbox.addEventListener('change', notifyBackgroundPage);
-    
+checkbox.checked = true;
      function checkingSwitchButton () {
-
       if (checkbox.checked) {
-       // checkbox.checked = true;
+        //checkbox.checked == false;
         browser.storage.local.set({checked : checkbox.checked});
       }else {
-       // checkbox.checked = false;
+       // checkbox.checked == true;
         browser.storage.local.set({checked : checkbox.checked});
       }
    }
@@ -21,7 +20,7 @@ console.log("hello 1")
   function notifyBackgroundPage() {
     console.log("hello 3")
     var sending = browser.runtime.sendMessage({
-      
+      checkedState : checkbox.checked
     });
     console.log("hello 4")
     sending.then(checkingSwitchButton, handleError);
