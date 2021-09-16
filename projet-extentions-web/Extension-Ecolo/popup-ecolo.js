@@ -1,8 +1,12 @@
-document.querySelector('input[type="checkbox"]').addEventListener('change', notifyBackgroundPage)
+var checkbox = document.querySelector('input[type="checkbox"]');
+checkbox.addEventListener('change', notifyBackgroundPage);
+    
+     function checkingSwitchButton () {
 
-     function checkingSwitchButton (message) {
       if (checkbox.checked) {
-        console.log("the button is checked:" + message.response);
+        checkbox.checked = false;
+      }else{
+        checkbox.checked = true;
       }
    }
 //------------
