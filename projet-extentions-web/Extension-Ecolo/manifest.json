@@ -3,7 +3,7 @@
     "name": "Limit the datas (for earth)",
     "version": "1.0",
   
-    "description": "Avoid the images loading in the web browser to save datas and give you how many carbon print you're saving. ",
+    "description": "Avoid the images to load in the web browser to save datas",
   
     "icons": {
       "96": "icons/icon-extension-ecolo.png"
